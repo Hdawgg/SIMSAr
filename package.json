@@ -1,0 +1,22 @@
+{
+  "name": "simsar",
+  "version": "1.0.0",
+  "private": true,
+  "description": "SIMSAR — the fair broker. MERN mini project (React + Express + MongoDB).",
+  "workspaces": [
+    "server",
+    "client"
+  ],
+  "scripts": {
+    "dev": "concurrently -n server,client -c blue,green \"npm run dev -w server\" \"npm run dev -w client\"",
+    "dev:demo": "concurrently -n api,employer,worker,admin -c blue,green,yellow,magenta \"npm run dev -w server\" \"npm run dev:employer -w client\" \"npm run dev:worker -w client\" \"npm run dev:admin -w client\"",
+    "start": "npm run start -w server",
+    "seed": "npm run seed -w server",
+    "seed:trades": "npm run seed:trades -w server",
+    "smoke": "npm run smoke -w server",
+    "build": "npm run build -w client"
+  },
+  "devDependencies": {
+    "concurrently": "^10.0.6"
+  }
+}
